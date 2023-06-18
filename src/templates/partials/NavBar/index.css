@@ -1,0 +1,19 @@
+.navbarPrimary {
+    background-color: #00B03C;
+}
+
+.navbarSecundary {
+    background-color: #00872E;
+}
+
+.navbar {
+    color: white;
+}
+
+.search {
+    width: 10px;
+}
+
+.nav-text {
+    color: white;
+}
