@@ -12,6 +12,8 @@ import Col from 'react-bootstrap/Col';
 
 import Slide1 from '../../assets/Slide1.jpg'
 
+import './index.css'
+
 const carroselData = [
     {
         title: 'Despete Tudo',
@@ -77,10 +79,12 @@ export const Home = () => {
                     </Row>
                 </Col>
             </Row>
-            <h2>Livros</h2>
-            <Row>
-                <Pagination /> 
-            </Row>
+            <h2 className='titulo-produto'>Promoções</h2>   
+            <Pagination books={
+                state.books.filter(book => book.isPromotion)
+            } dispatch={dispatch} itensPage={4} /> 
+            <h2 className='titulo-produto'>Livros</h2>
+            <Pagination books={state.books} dispatch={dispatch} itensPage={4} /> 
         </Container>
         </>
     );

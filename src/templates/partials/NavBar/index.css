@@ -1,17 +1,22 @@
 .navbarPrimary {
-    background-color: #00B03C;
+    background-color: #01403A;
 }
 
 .navbarSecundary {
-    background-color: #00872E;
+    background-color: #8ABFB5;
 }
 
 .navbar {
     color: white;
 }
 
-.search {
-    width: 10px;
+.search-input {
+    width: 400px;
+    margin: 0px;
+}
+
+.search-btn {
+    margin: 4px;
 }
 
 .nav-text {
