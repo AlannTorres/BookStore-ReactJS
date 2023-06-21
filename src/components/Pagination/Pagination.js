@@ -60,7 +60,7 @@ export const Pagination = ({ books, dispatch, itensPage }) => {
                                         onClick={() => handlerClick(book)}
                                         loading={itensLoading[book.bookId]}
                                         loadingLabel={'Adicionando...'} 
-                                        variant={'primary'}
+                                        variant={'secondary'}
                                         discount={book.discount}
                                         isPromotion={book.isPromotion}
                                     />

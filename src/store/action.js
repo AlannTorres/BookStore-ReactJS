@@ -23,6 +23,23 @@ export const fetchBookAction = async (dispatch) => {
     dispatch(fetchBookSuccessAction(booksData))
 }
 
+// -> Renderizar livros na pagina
+export const fetchCartInitAction = () => ({
+    type: types.fetchCartInitType
+})
+
+export const fetchCartSuccessAction = (cartBooks) => ({
+    type: types.fetchCartSuccessType,
+    payload: cartBooks   
+})
+
+// -> Renderizar itens do carrinho
+export const fetchCartAction = async (dispatch) => {
+    dispatch(fetchCartInitAction());
+    const cartBooksData = await services.getCart();
+    dispatch(fetchCartSuccessAction(cartBooksData))
+}
+
 // -> Remover livro ao carrinho
 export const removeBookInCartInitAction = async () => ({
     type: types.removeBookInCartInitType

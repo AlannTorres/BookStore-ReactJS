@@ -27,6 +27,7 @@ export const Card = ({ image, title, author, price, onClick, loading, loadingLab
             </CardBS.Body>
             <CardBS.Body className='p-1'>
                 <Button 
+                    className='card-button'
                     label='Adicionar ao carrinho' 
                     variant={variant}
                     loading={loading} 

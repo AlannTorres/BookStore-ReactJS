@@ -1,4 +1,4 @@
-import { fetchBookAction } from '../../store/action';
+import { fetchBookAction, fetchCartAction } from '../../store/action';
 import { useAppContext } from '../../store/AppContext';
 import { useEffect, useState } from 'react';
 import { Carousel } from '../../components/Carousel/Carousel';
@@ -41,6 +41,7 @@ export const Home = () => {
 
     useEffect(() => {
         fetchBookAction(dispatch)
+        fetchCartAction(dispatch)
     }, [dispatch])
 
     useEffect(() => {
