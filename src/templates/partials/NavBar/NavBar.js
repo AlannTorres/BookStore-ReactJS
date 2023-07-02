@@ -8,8 +8,6 @@ import NavbarBS from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 
-import bookIcon from '../../../assets/computador.png'
-import bagIcon from '../../../assets/shop.png'
 import searchIcon from '../../../assets/search.png'
 
 import './index.css'
@@ -21,14 +19,7 @@ export const NavBar = () => {
         <>
         <NavbarBS className='navbarPrimary' expand="lg">
             <Container>
-                <NavbarBS.Brand className='text-light fw-bold fs-3' href="#home">
-                    <img
-                        src={bookIcon}
-                        width="40"
-                        height="40"
-                        className="d-inline-block align-middle"
-                        alt="bookIcon"
-                    />
+                <NavbarBS.Brand className='text-light fw-bold fs-1' href="#home">
                     BookStore
                 </NavbarBS.Brand>
                 <NavbarBS.Toggle aria-controls="basic-navbar-nav" />
@@ -38,10 +29,11 @@ export const NavBar = () => {
                             <Form.Control
                                 type="search"
                                 placeholder="Pesquise seu livro favorito..."
-                                className="search me-2"
+                                className="search-input"
                                 aria-label="Search"
                             />
                             <Button 
+                                className='search-btn'
                                 src={
                                     <img
                                         src={searchIcon}
@@ -58,17 +50,8 @@ export const NavBar = () => {
                     <Nav className="ms-auto">
                         <Link className='nav-link' to='/carrinho'>
                             <Button 
-                                src={
-                                    <img
-                                        src={bagIcon}
-                                        width="40"
-                                        height="40"
-                                        className="d-inline-block align-middle"
-                                        alt="bagIcon"
-                                    />
-                                } 
                                 label='Suas Compras' 
-                                variant='Dark' 
+                                variant='light' 
                                 total={state.cart.length}
                             />
                         </Link>

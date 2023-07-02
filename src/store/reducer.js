@@ -14,6 +14,19 @@ export function reducer(state, action) {
                 type: types.fetchBookSuccessType,
                 books: action.payload
             }
+
+        // Carregar Carrinho
+        case types.fetchCartInitType:
+            return {   
+                ...state,
+                type: types.fetchCartInitType,
+            }
+        case types.fetchCartSuccessType:
+            return {   
+                ...state,
+                type: types.fetchCartSuccessType,
+                cart: action.payload
+            }
         
         // Salvar no carrinho
         case types.saveBookInCartInitType:
@@ -26,6 +39,20 @@ export function reducer(state, action) {
             return {   
                 ...state,
                 type: types.saveBookInCartSuccessType,
+                cart: action.payload
+            }
+
+        // Remover livro do carrinho
+        case types.removeBookCartInitType:
+            return {   
+                ...state,
+                type: types.removeBookCartInitType,
+
+            }
+        case types.removeBookCartSuccessType:
+            return {   
+                ...state,
+                type: types.removeBookCartSuccessType,
                 cart: action.payload
             }
 
