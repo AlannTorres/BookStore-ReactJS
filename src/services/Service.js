@@ -87,8 +87,8 @@ export const getBooks = async () => {
             price: '57.34',
             capa: 'https://m.media-amazon.com/images/I/41kSZ1FKtnL._SX331_BO1,204,203,200_.jpg',
             category: '',
-            isPromotion: false,
-            discount: 1
+            isPromotion: true,
+            discount: 0.7
         },
         {
             bookId: '010',
@@ -137,7 +137,7 @@ export const getBooks = async () => {
             price: '11.99',
             capa: 'https://m.media-amazon.com/images/I/516VOgxwg2L._SY344_BO1,204,203,200_QL70_ML2_.jpg',
             category: 'Ficção',
-            isPromotion: true,
+            isPromotion: false,
             discount: 1
         },
         {
@@ -147,8 +147,8 @@ export const getBooks = async () => {
             price: '9.90',
             capa: 'https://m.media-amazon.com/images/I/61owA5ey3iL._SY344_BO1,204,203,200_QL70_ML2_.jpg',
             category: 'Ficção',
-            isPromotion: false,
-            discount: 1
+            isPromotion: true,
+            discount: 0.3
         },
     ]
 }
@@ -164,10 +164,34 @@ export const saveCart = async (cart) => {
 export const saveBookInCart = async (book) => {
     const saleBook = {
         ...book,
-        price: (parseFloat(book.discount)*book.price).toFixed(2)
+        price: (parseFloat(book.discount)*book.price).toFixed(2),
     }
+
     const cart = await getCart();
-    cart.push(saleBook);
+
+    const existingBook = cart.find((item) => item.bookId === book.bookId);
+    if (existingBook) {
+        existingBook.quantity += 1;
+    } else {
+        saleBook.quantity = 1;
+        cart.push(saleBook);
+    }
+ 
+    await saveCart(cart)
+    return cart;
+}
+
+export const removeBookCart = async (removeBookId) => {
+    const cart = await getCart();
+    const index = cart.findIndex(book => book.bookId === removeBookId);
+    if (index !== -1) {
+        const book = cart[index];
+        if (book.quantity > 1) {
+            book.quantity -= 1;
+        } else {
+            cart.splice(index, 1);
+        }
+    }
     await saveCart(cart)
     return cart;
 }

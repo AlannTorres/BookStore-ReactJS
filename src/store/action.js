@@ -38,20 +38,24 @@ export const fetchCartAction = async (dispatch) => {
     dispatch(fetchCartInitAction());
     const cartBooksData = await services.getCart();
     dispatch(fetchCartSuccessAction(cartBooksData))
+    return cartBooksData
 }
 
 // -> Remover livro ao carrinho
-export const removeBookInCartInitAction = async () => ({
-    type: types.removeBookInCartInitType
+export const removeBookCartInitAction = async () => ({
+    type: types.removeBookCartInitType
 })
 
-export const removeBookInCartSuccessAction = async (books) => ({
-    type: types.removeBookInCartSuccessType,
-    payload: books   
+export const removeBookCartSuccessAction = async (cart) => ({
+    type: types.removeBookCartSuccessType,
+    payload: cart   
 })
 
-export const removeBookInCartAction = async (dispatch, bookId) => {
-
+export const removeBookCartAction = async (dispatch, removeBookId) => {
+    dispatch(removeBookCartInitAction())
+    await sleep(2000)
+    const cart = await services.removeBookCart(removeBookId)
+    dispatch(removeBookCartSuccessAction(cart))
 }
 
 // -> Adicionar livro ao carrinho

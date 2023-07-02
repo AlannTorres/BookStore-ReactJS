@@ -42,6 +42,20 @@ export function reducer(state, action) {
                 cart: action.payload
             }
 
+        // Remover livro do carrinho
+        case types.removeBookCartInitType:
+            return {   
+                ...state,
+                type: types.removeBookCartInitType,
+
+            }
+        case types.removeBookCartSuccessType:
+            return {   
+                ...state,
+                type: types.removeBookCartSuccessType,
+                cart: action.payload
+            }
+
         // default
         default:
             return { 

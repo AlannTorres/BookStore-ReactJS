@@ -1,9 +1,11 @@
 import CarouselBS from 'react-bootstrap/Carousel';
 
-export const Carousel = ({ carroselData }) => {
+import './index.css'
+
+export const Carousel = ({ carouselData }) => {
     return (
         <CarouselBS>
-            {carroselData.map(slide => {
+            {carouselData.map(slide => {
                 return (
                     <CarouselBS.Item>
                         <img
@@ -12,7 +14,7 @@ export const Carousel = ({ carroselData }) => {
                             alt={slide.alt}
                         />
                         <CarouselBS.Caption>
-                            <h3>{slide.title}</h3>
+                            <h3 className="carousel-title text-center">{slide.title}</h3>
                             <p>{slide.subtitle}</p>
                         </CarouselBS.Caption>
                     </CarouselBS.Item>

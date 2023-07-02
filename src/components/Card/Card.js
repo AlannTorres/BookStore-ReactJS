@@ -1,12 +1,18 @@
 import { Button } from '../Button/Button';
 
 import CardBS from 'react-bootstrap/Card';
+import Badge from 'react-bootstrap/esm/Badge';
 
 import './index.css'
 
 export const Card = ({ image, title, author, price, onClick, loading, loadingLabel, color, variant, isPromotion, discount }) => {    
     return (
         <CardBS className='card' >
+            {isPromotion && (
+                <Badge bg="danger" className="position-absolute top-0 end-0 mt-2 me-2">
+                {Math.floor(discount * 100)}% OFF
+                </Badge>
+            )}
             <CardBS.Img className='card-img' variant="top" src={image} />
             <CardBS.Body className='p-3'>
                 <CardBS.Title className='text-truncate'>

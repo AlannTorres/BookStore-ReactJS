@@ -10,28 +10,26 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import Slide1 from '../../assets/Slide1.jpg'
+import homeImage from '../../assets/HomeImage.png'
 
 import './index.css'
+import { Footer } from '../../templates/partials/Footer/Footer';
 
-const carroselData = [
+const carouselData = [
     {
-        title: 'Despete Tudo',
-        subtitle: 'Test 1',
-        image: Slide1,
-        alt: 'slide1',
+        title: '',
+        image: 'https://m.media-amazon.com/images/S/aplus-media-library-service-media/da0c0336-23ef-4c92-ae88-4b724742061d.__CR0,0,970,600_PT0_SX970_V1___.png',
+        alt: 'texto sobre o livro salvar o fogo',
     },
     {
-        title: 'Despete Tudo',
-        subtitle: 'Test 1',
-        image: Slide1,
-        alt: 'slide1',
+        title: '',
+        image: 'https://i0.wp.com/oquartonerd.com.br/wp-content/uploads/2021/03/A-Revolucao-dos-Bichos-vai-ganhar-nova-edicao-de-colecionador-1.png?fit=1920%2C1080&ssl=1',
+        alt: "porco com texto ao lado 'fazenda dos animais' ",
     },
     {
-        title: 'Despete Tudo',
-        subtitle: 'Test 1',
-        image: Slide1,
-        alt: 'slide1',
+        title: '',
+        image: 'https://m.media-amazon.com/images/S/aplus-media-library-service-media/036a465f-9422-4f7a-8f73-a95b57f1d0fd.__CR0,0,970,600_PT0_SX970_V1___.jpg',
+        alt: 'Livro anotomia',
     }
 ]
 
@@ -42,7 +40,7 @@ export const Home = () => {
     useEffect(() => {
         fetchBookAction(dispatch)
         fetchCartAction(dispatch)
-    }, [dispatch])
+    }, [])
 
     useEffect(() => {
         if (state.type === saveBookInCartSuccessType) {
@@ -58,24 +56,18 @@ export const Home = () => {
                 onClose={() => setShowFeedback(false)}
             />
         )}
-        <Container fluid>
+        <Container className='mb-5' fluid>
             <Row>
-                <Col className='mt-1' sm={8}>
-                    <Carousel carroselData={carroselData} />
+                <Col className='mt-5' sm={7}>
+                    <Carousel carouselData={carouselData} />
                 </Col>
-                <Col sm={4}>
+                <Col sm={5}>
                     <Row>
                         <Col className='mt-2' sm={12}>
-                        <img
-                            className="d-block w-100"
-                            src='https://images.pexels.com/photos/3060324/pexels-photo-3060324.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-                        />
-                        </Col>
-                        <Col className='mt-2' sm={12}>
-                        <img
-                            className="d-block w-100"
-                            src='https://images.pexels.com/photos/3060324/pexels-photo-3060324.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-                        />
+                            <img
+                                className="d-block w-100"
+                                src={homeImage}
+                            />
                         </Col>
                     </Row>
                 </Col>
@@ -87,6 +79,7 @@ export const Home = () => {
             <h2 className='titulo-produto'>Livros</h2>
             <Pagination books={state.books} dispatch={dispatch} itensPage={4} /> 
         </Container>
+        <Footer/>
         </>
     );
 }

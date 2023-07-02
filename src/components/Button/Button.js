@@ -4,9 +4,9 @@ import SpinnerBS from 'react-bootstrap/Spinner';
 
 import './index.css'
 
-export const Button = ({ label, total, variant, src, onClick, loadingLabel, loading }) => {
+export const Button = ({ className, label, total, variant, src, onClick, loadingLabel, loading }) => {
     return (
-        <ButtonBS className='button' variant={variant} onClick={onClick} >
+        <ButtonBS className={'button '+className} variant={variant} onClick={onClick} disabled={loading} >
             {src}
             {loading && (
                 <>
@@ -17,7 +17,6 @@ export const Button = ({ label, total, variant, src, onClick, loadingLabel, load
                     role="status"
                     aria-hidden="true"
                     >
-                        <span className="visually-hidden">Adicionando...</span>
                     </SpinnerBS>{' '}
                 </>
             )}
