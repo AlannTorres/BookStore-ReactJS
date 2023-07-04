@@ -5,6 +5,7 @@ import { Carousel } from '../../components/Carousel/Carousel';
 import { Pagination } from '../../components/Pagination/Pagination';
 import { saveBookInCartSuccessType } from '../../store/types';
 import { Notification } from '../../components/Notification/Notification';
+import { Footer } from '../../templates/partials/Footer/Footer';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -13,7 +14,6 @@ import Col from 'react-bootstrap/Col';
 import homeImage from '../../assets/HomeImage.png'
 
 import './index.css'
-import { Footer } from '../../templates/partials/Footer/Footer';
 
 const carouselData = [
     {
@@ -67,17 +67,30 @@ export const Home = () => {
                             <img
                                 className="d-block w-100"
                                 src={homeImage}
+                                alt='Desenho de uma pessao segurando um livro'
                             />
                         </Col>
                     </Row>
                 </Col>
             </Row>
             <h2 className='titulo-produto'>Promoções</h2>   
-            <Pagination books={
-                state.books.filter(book => book.isPromotion)
-            } dispatch={dispatch} itensPage={4} /> 
+            <div className="pagination-container">
+                <Pagination 
+                    books={
+                        state.books.filter(book => book.isPromotion)
+                    } 
+                    dispatch={dispatch}
+                    itensPage={4}
+                /> 
+            </div>
             <h2 className='titulo-produto'>Livros</h2>
-            <Pagination books={state.books} dispatch={dispatch} itensPage={4} /> 
+            <div className="pagination-container">
+                <Pagination 
+                    books={state.books} 
+                    dispatch={dispatch} 
+                    itensPage={4}
+                /> 
+            </div>
         </Container>
         <Footer/>
         </>

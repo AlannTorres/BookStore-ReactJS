@@ -5,17 +5,17 @@ import './index.css'
 export const Carousel = ({ carouselData }) => {
     return (
         <CarouselBS>
-            {carouselData.map(slide => {
+            {carouselData.map((item, itemIndex) => {
                 return (
-                    <CarouselBS.Item>
+                    <CarouselBS.Item key={itemIndex}>
                         <img
                             className="d-block w-100"
-                            src={slide.image}
-                            alt={slide.alt}
+                            src={item.image}
+                            alt={item.alt}
                         />
                         <CarouselBS.Caption>
-                            <h3 className="carousel-title text-center">{slide.title}</h3>
-                            <p>{slide.subtitle}</p>
+                            <h3 className="carousel-title text-center">{item.title}</h3>
+                            <p>{item.subtitle}</p>
                         </CarouselBS.Caption>
                     </CarouselBS.Item>
                 )
