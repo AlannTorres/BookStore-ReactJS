@@ -49,28 +49,17 @@ export const Home = () => {
     }, [state.type])
 
     return (
-        <>
+        <section className='main'>
         {showFeedback && (
             <Notification 
                 mensage='Adicionado ao carrinho!'
                 onClose={() => setShowFeedback(false)}
             />
         )}
-        <Container className='mb-5' fluid>
-            <Row>
-                <Col className='mt-5' sm={7}>
+        <Container className='mb-3' fluid>
+            <Row className='justify-content-center'>
+                <Col className='mt-3 w-75' sm={12}>
                     <Carousel carouselData={carouselData} />
-                </Col>
-                <Col sm={5}>
-                    <Row>
-                        <Col className='mt-2' sm={12}>
-                            <img
-                                className="d-block w-100"
-                                src={homeImage}
-                                alt='Desenho de uma pessao segurando um livro'
-                            />
-                        </Col>
-                    </Row>
                 </Col>
             </Row>
             <h2 className='titulo-produto'>Promoções</h2>   
@@ -93,6 +82,6 @@ export const Home = () => {
             </div>
         </Container>
         <Footer/>
-        </>
+        </section>
     );
 }

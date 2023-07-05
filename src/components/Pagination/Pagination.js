@@ -63,12 +63,16 @@ export const Pagination = ({ books, dispatch, itensPage }) => {
     return (
         <Container className='container-pagination p-0' fluid>
             <Row className='justify-content-center m-0' >
-                <Col className='button-pagination justify-content-start p-0' xs={4} md={1}>
-                    <Button className='button-pagination' variant="outline-dark" label='<' onClick={(e) => setCurrentPage(
-                        currentPage === 0 ? currentPage : currentPage-1
-                    )} />
+                <Col className='button-pagination justify-content-end p-0 m-0' xs={2} md={1}>
+                    <Button 
+                        variant="outline-dark" 
+                        label='<' 
+                        onClick={(e) => setCurrentPage(
+                            currentPage === 0 ? currentPage : currentPage - 1
+                        )} 
+                    />
                 </Col>
-                <Col className='p-0' xs={4} md={10}>
+                <Col className='p-0' xs={8} md={10}>
                     <Row className='justify-content-center'>
                         {currentItens.map((book, bookIndex) => {
                             return (
@@ -90,10 +94,14 @@ export const Pagination = ({ books, dispatch, itensPage }) => {
                         })}
                     </Row>
                 </Col>
-                <Col className='button-pagination justify-content-end p-0' xs={4} md={1}>
-                    <Button variant="outline-dark" label='>' onClick={(e) => setCurrentPage(
-                        currentPage === pages-1 ? currentPage : currentPage+1
-                    )} />
+                <Col className='button-pagination justify-content-start p-0' xs={2} md={1}>
+                    <Button 
+                        variant="outline-dark" 
+                        label='>' 
+                        onClick={(e) => setCurrentPage(
+                        currentPage === pages - 1 ? currentPage : currentPage + 1
+                        )} 
+                    />
                 </Col>
             </Row>
         </Container>

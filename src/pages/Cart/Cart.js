@@ -122,7 +122,7 @@ export const Cart = () => {
                     <Button 
                       className='m-2 p-2'
                       label='+' 
-                      variant={'primary'}
+                      variant={'secondary'}
                       onClick={() => handlerClickAdd(item)} 
                       loading={itensLoading[item.bookId]}
 
@@ -131,7 +131,7 @@ export const Cart = () => {
                     <Button 
                       className='m-2 p-2'
                       label='-' 
-                      variant={'primary'}
+                      variant={'secondary'}
                       onClick={() => handlerClickRemove(item)} 
                       loading={itensLoading[item.bookId]}
                     />
@@ -144,9 +144,9 @@ export const Cart = () => {
           </Table>
         </Col>
       </Row>
-      <Row className=" m-2 justify-content-center">
+      <Row className="m-2 justify-content-center">
         <Col xs={5}>
-          <ListGroup className="my-2">
+          <ListGroup>
             <ListGroup.Item>
               <InputGroup className="mb-3">
                 <InputGroup.Text>CEP</InputGroup.Text>
