@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# BookStore
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição
 
-## Available Scripts
+Este projeto front-end foi desenvolvido utilizando React, React Router e React Bootstrap. Consiste em duas páginas: a página inicial exibe uma lista de produtos que podem ser adicionados a um carrinho de compras, e a segunda página exibe o conteúdo do carrinho. A funcionalidade de compra não está implementada neste momento, apenas as funcionalidades de adicionar e remover itens do carrinho.
 
-In the project directory, you can run:
+## Tecnologias Utilizadas
 
-### `npm start`
+- React
+- React Router
+- React Bootstrap
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Instalação
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Certifique-se de ter o Node.js instalado em sua máquina.
+2. Faça o clone deste repositório.
+3. No diretório raiz do projeto, execute o seguinte comando no terminal para instalar as dependências:
+   ```shell
+   npm install
+   ```
+4. Execute o seguinte comando no terminal para adicionar a dependência do React Router:
+    ```shell
+    npm install react-router-dom
+    ```
+5. Em seguida, adicione a dependência do React Bootstrap executando o seguinte comando:
+    ```shell
+    npm install react-bootstrap bootstrap
+    ```
+6. Após a conclusão da instalação, abra o arquivo package.json e verifique se as dependências foram adicionadas corretamente.
 
-### `npm test`
+## Uso
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. No diretório raiz do projeto, execute o seguinte comando no terminal para iniciar a aplicação:
 
-### `npm run build`
+   ```shell
+   npm start
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Abra o navegador e acesse `http://localhost:3000` para visualizar a página inicial.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Funcionalidades
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Página Inicial
 
-### `npm run eject`
+- Exibe uma lista de produtos disponíveis.
+- Cada produto possui um botão "Adicionar ao Carrinho".
+- Ao clicar no botão "Adicionar ao Carrinho", o produto é adicionado ao carrinho usando o Local Storage.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Página do Carrinho
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Exibe os produtos adicionados ao carrinho.
+- Cada produto possui um botão para remover ou adicionar um item.
