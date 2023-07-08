@@ -5,15 +5,13 @@ import { Carousel } from '../../components/Carousel/Carousel';
 import { Pagination } from '../../components/Pagination/Pagination';
 import { saveBookInCartSuccessType } from '../../store/types';
 import { Notification } from '../../components/Notification/Notification';
+import { Footer } from '../../templates/partials/Footer/Footer';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import homeImage from '../../assets/HomeImage.png'
-
 import './index.css'
-import { Footer } from '../../templates/partials/Footer/Footer';
 
 const carouselData = [
     {
@@ -49,37 +47,39 @@ export const Home = () => {
     }, [state.type])
 
     return (
-        <>
+        <section className='main'>
         {showFeedback && (
             <Notification 
                 mensage='Adicionado ao carrinho!'
                 onClose={() => setShowFeedback(false)}
             />
         )}
-        <Container className='mb-5' fluid>
-            <Row>
-                <Col className='mt-5' sm={7}>
+        <Container className='mb-3' fluid>
+            <Row className='justify-content-center'>
+                <Col className='mt-3 w-50' sm={12}>
                     <Carousel carouselData={carouselData} />
-                </Col>
-                <Col sm={5}>
-                    <Row>
-                        <Col className='mt-2' sm={12}>
-                            <img
-                                className="d-block w-100"
-                                src={homeImage}
-                            />
-                        </Col>
-                    </Row>
                 </Col>
             </Row>
             <h2 className='titulo-produto'>Promoções</h2>   
-            <Pagination books={
-                state.books.filter(book => book.isPromotion)
-            } dispatch={dispatch} itensPage={4} /> 
+            <div className="pagination-container">
+                <Pagination 
+                    books={
+                        state.books.filter(book => book.isPromotion)
+                    } 
+                    dispatch={dispatch}
+                    itensPage={4}
+                /> 
+            </div>
             <h2 className='titulo-produto'>Livros</h2>
-            <Pagination books={state.books} dispatch={dispatch} itensPage={4} /> 
+            <div className="pagination-container">
+                <Pagination 
+                    books={state.books} 
+                    dispatch={dispatch} 
+                    itensPage={4}
+                /> 
+            </div>
         </Container>
         <Footer/>
-        </>
+        </section>
     );
 }

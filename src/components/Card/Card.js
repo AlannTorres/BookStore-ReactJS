@@ -7,7 +7,7 @@ import './index.css'
 
 export const Card = ({ image, title, author, price, onClick, loading, loadingLabel, color, variant, isPromotion, discount }) => {    
     return (
-        <CardBS className='card' >
+        <CardBS className='card shadow' >
             {isPromotion && (
                 <Badge bg="danger" className="position-absolute top-0 end-0 mt-2 me-2">
                 {Math.floor(discount * 100)}% OFF
@@ -39,7 +39,6 @@ export const Card = ({ image, title, author, price, onClick, loading, loadingLab
                     loading={loading} 
                     loadingLabel={loadingLabel}
                     onClick={onClick} 
-                    color={color}
                 />
             </CardBS.Body>
         </CardBS>

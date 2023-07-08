@@ -15,12 +15,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Figure from 'react-bootstrap/Figure';
 
+import { useCep } from "../../Hook/useCep";
+
 export const Cart = () => {
   const { state, dispatch } = useAppContext();
-  const [ cepEndereco, setCepEndereco ] = useState({});
   const [ precoTotal, setPrecoTotal ] = useState(0);
-  const [ endereco, setEndereco ] = useState({});
   const [ itensLoading, setItensLoading ] = useState({});
+  const { endereco, cepEndereco, handleChange, handleClickCep } = useCep();
 
   const ajustarPrecoTotal = () => {
     let total = 0;
@@ -60,24 +61,6 @@ export const Cart = () => {
         [book.bookId]: false
       }
     });
-  }
-
-  const handleChange = (e) => {
-    setCepEndereco(e.target.value);
-  }
-
-  function handleClickCep() {
-    fetch(`https://viacep.com.br/ws/${cepEndereco}/json/`)
-    .then(dados => {
-      if (dados.ok) {
-        return dados.json();
-      } else {
-        setEndereco({});
-      }
-    })
-    .then(endereco => {
-      setEndereco(endereco);
-    })
   }
 
   useEffect(() => {
@@ -122,7 +105,7 @@ export const Cart = () => {
                     <Button 
                       className='m-2 p-2'
                       label='+' 
-                      variant={'primary'}
+                      variant={'secondary'}
                       onClick={() => handlerClickAdd(item)} 
                       loading={itensLoading[item.bookId]}
 
@@ -131,7 +114,7 @@ export const Cart = () => {
                     <Button 
                       className='m-2 p-2'
                       label='-' 
-                      variant={'primary'}
+                      variant={'secondary'}
                       onClick={() => handlerClickRemove(item)} 
                       loading={itensLoading[item.bookId]}
                     />
@@ -144,9 +127,9 @@ export const Cart = () => {
           </Table>
         </Col>
       </Row>
-      <Row className=" m-2 justify-content-center">
+      <Row className="m-2 justify-content-center">
         <Col xs={5}>
-          <ListGroup className="my-2">
+          <ListGroup>
             <ListGroup.Item>
               <InputGroup className="mb-3">
                 <InputGroup.Text>CEP</InputGroup.Text>

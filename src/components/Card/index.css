@@ -1,5 +1,7 @@
 .card {
     width: 12rem;
+    background-color: #f0f0f0;
+    border-color: #ddd;
 }
 
 .card-img {
@@ -8,5 +10,5 @@
 }
 
 .card-button {
-    background-color: #7CA697;
+    background-color: white;
 }
