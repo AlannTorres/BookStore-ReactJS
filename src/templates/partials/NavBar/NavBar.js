@@ -19,7 +19,7 @@ export const NavBar = () => {
         <>
         <NavbarBS className='navbarPrimary' expand="lg">
             <Container>
-                <NavbarBS.Brand className='text-light fw-bold fs-1' href="#home">
+                <NavbarBS.Brand className='text-light fw-bold fs-1' href="/">
                     BookStore
                 </NavbarBS.Brand>
                 <NavbarBS.Toggle aria-controls="basic-navbar-nav" />
