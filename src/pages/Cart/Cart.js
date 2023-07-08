@@ -15,12 +15,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Figure from 'react-bootstrap/Figure';
 
+import { useCep } from "../../Hook/useCep";
+
 export const Cart = () => {
   const { state, dispatch } = useAppContext();
-  const [ cepEndereco, setCepEndereco ] = useState({});
   const [ precoTotal, setPrecoTotal ] = useState(0);
-  const [ endereco, setEndereco ] = useState({});
   const [ itensLoading, setItensLoading ] = useState({});
+  const { endereco, cepEndereco, handleChange, handleClickCep } = useCep();
 
   const ajustarPrecoTotal = () => {
     let total = 0;
@@ -60,24 +61,6 @@ export const Cart = () => {
         [book.bookId]: false
       }
     });
-  }
-
-  const handleChange = (e) => {
-    setCepEndereco(e.target.value);
-  }
-
-  function handleClickCep() {
-    fetch(`https://viacep.com.br/ws/${cepEndereco}/json/`)
-    .then(dados => {
-      if (dados.ok) {
-        return dados.json();
-      } else {
-        setEndereco({});
-      }
-    })
-    .then(endereco => {
-      setEndereco(endereco);
-    })
   }
 
   useEffect(() => {

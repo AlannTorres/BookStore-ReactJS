@@ -11,8 +11,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import homeImage from '../../assets/HomeImage.png'
-
 import './index.css'
 
 const carouselData = [
@@ -58,7 +56,7 @@ export const Home = () => {
         )}
         <Container className='mb-3' fluid>
             <Row className='justify-content-center'>
-                <Col className='mt-3 w-75' sm={12}>
+                <Col className='mt-3 w-50' sm={12}>
                     <Carousel carouselData={carouselData} />
                 </Col>
             </Row>
